@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obras SIPDUS: Municipal</title>
+    <link rel="stylesheet" href="oprtunidades_varias_fuentes.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-search@2.3.7/dist/leaflet-search.src.css" />
+    <script src="https://unpkg.com/leaflet-search@2.3.7/dist/leaflet-search.src.js"></script>
+    <script src="Mapas_Alternos/Indicadores_tendencia_negativa_files/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+    <style>
+        
+</style>
+</head>
+
+<body style="display: flex;">
+    <div id="mapa-problemas" style="width: 60vw; height: 100vh;background-color: antiquewhite;">
+        <iframe id='mapasIframe' src="Mapas_Alternos/Indicadores_tendencia_negativa.html" frameborder="0" style="width: 100%;height: 100%;"></iframe>
+        <iframe id='mapasIframe2' src="Mapas_Alternos/percepcion_publica_encuesta.html" frameborder="0" style="width: 100%;height: 100%;display: none;"></iframe>
+        <iframe id='mapasIframe3' src="Mapas_Alternos/incidencia_delictiva.html" frameborder="0" style="width: 100%;height: 100%;display: none;"></iframe>
+        <iframe id='mapasIframe4' src="Mapas_Alternos/Web_Scrapping.html" frameborder="0" style="width: 100%;height: 100%;display: none;"></iframe>
+        <!-- Aquí va el mapa web -->
+    </div>
+    <div style="width: 40vw; height: 100vh;">
+        <!-- aquí van las cards de elección -->
+         <div class="grid-container-problemas">
+            <div class="card-problemas">
+                <div class="title-problemas">Indicadores en Tendencia Negativa</div>
+                <div class="subtitle-problemas">Colección de 32 indicadores clasificados en 7 temas</div>
+                <div class="content-problemas">
+                <p></p>
+                <ul class="main-list">
+                    <li class="has-submenu">
+                        <a href="#">Desarrollo Económico</a>
+                        <ul class="sub-list">
+                            <li><a href="#">PIB per cápita</a></li>
+                            <li><a href="#">PIB turístico per cápita</a></li>
+                            <li><a href="#">Empleos formales generados ante el IMSS</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-submenu">
+                        <a href="#">Pobreza y Carencias</a>
+                        <ul class="sub-list">
+                            <li><a href="#">Rezago Educativo</a></li>
+                            <li><a href="#">Pobreza</a></li>
+                            <li><a href="#">Índice de rezago social</a></li>
+                            <li><a href="#">índice de marginación</a></li>
+                            <li><a href="#">Pobreza extrema</a></li>
+                            <li><a href="#">Acceso a la seguridad social</a></li>
+                            <li><a href="#">Calidad y espacios en la vivienda</a></li>
+                            <li><a href="#">Acceso a los servicios básicos en la vivienda</a></li>
+                            <li><a href="#">Acceso a la alimentación</a></li>
+                            <li><a href="#">Ingreso inferior a la línea de pobreza</a></li>
+                            <li><a href="#">Acceso a los servicios de salud</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-submenu">
+                        <a href="#">Salud</a>
+                        <ul class="sub-list">
+                            <li><a href="#">Camas  por cada mil habitantes</a></li>
+                            <li><a href="#">Personal médico por cada mil habitantes</a></li>
+                            <li><a href="#">Población con derecho a los servicios de salud</a></li>
+                            <li><a href="#">Consultorios por cada mil habitantes</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-submenu">
+                        <a href="#">Educación</a>
+                        <ul class="sub-list">
+                            <li><a href="#">Grado promedio de escolaridad</a></li>
+                            <li><a href="#">% Deserción en educación media superior</a></li>
+                            <li><a href="#">% Analfabetismo</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-submenu">
+                        <a href="#">Medio Ambiente</a>
+                        <ul class="sub-list">
+                            <li><a href="#">Toneladas de basura generadas por cada mil habitantes</a></li>
+                            <li><a href="#">Sitios de disposición final</a></li>
+                            <li><a href="#">Volumen tratado en las PTARs</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-submenu">
+                        <a href="#">Seguridad Pública</a>
+                        <ul class="sub-list">
+                            <li><a href="#">Incidencia Delictiva del Fuero Común</a></li>
+                            <li><a href="#">Tasa de Prevalencia delictiva por cada 1000 habitantes</a></li>
+
+                        </ul>
+                    </li>
+                    <li class="has-submenu">
+                        <a href="#">Servicios Básicos y Vivienda</a>
+                        <ul class="sub-list">
+                            <li><a href="#">Hacinamiento</a></li>
+                            <li><a href="#">% Viviendas con menor abatimiento de Agua potable entubada</a></li>
+                            <li><a href="#">% Viviendas sin sanitario ni drenaje</a></li>
+                            <li><a href="#">% Viviendas sin Energia electrica</a></li>
+                            <li><a href="#">% Viviendas con menor disponibilidad de internet</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                </div>
+            </div>
+            
+            <div class="card-problemas">
+                <div class="title-problemas">Percepción Pública</div>
+                <div class="subtitle-problemas">A partir de encuesta post-informe, se preguntó a la población "¿Cuál consideras la principal problemática del Estado?". Las respuestas se clasifican en 7 temas:</div>
+                <div class="content-problemas">
+                <p></p>
+                </div>
+            </div>
+            
+            <div class="card-problemas">
+                <div class="title-problemas">Incidencia Delictiva</div>
+                <div class="subtitle-problemas">16 principales delitos con datos de los últimos 5 años a nivel municipal:</div>
+                <div class="content-problemas">
+                <p></p>
+                </div>
+            </div>
+            <div class="card-problemas">
+                <div class="title-problemas">Percepción mediática</div>
+                <div class="subtitle-problemas">De hacer Web Scrapping se identifican 4y problemas clasificados en 10 temas:</div>
+                <div class="content-problemas">
+                <p></p>
+                </div>
+            </div>
+            </div>
+    </div>
+
+</body>
+<script src="app.js"></script>
+</html>

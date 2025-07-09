@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mapa Sencillo con Placeholder</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <style>
+        body { margin:0; padding:0; }
+        #map { width: 100%; height: 500px; } /* Asegúrate de darle un tamaño */
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+
+    <script type="application/json" id="map-config">
+    {
+        "method": "addPolygons",
+        "args": [
+            "__GEOMETRIA_MUNICIPIOS_PLACEHOLDER__",
+            {"interactive":true,"className":"","stroke":true,"color":"#ffffff","weight":5,"opacity":0.5,"fill":true,"fillColor":"rgba(255,0,0,0)","fillOpacity":0.2,"smoothFactor":1,"noClip":false},
+            "Capa de Municipios",["Acatlán","Acaxochitlán","Actopan","Agua Blanca de Iturbide","Ajacuba","Alfajayucan","Almoloya","Apan","El Arenal","Atitalaquia","Atlapexco","Atotonilco el Grande","Atotonilco de Tula","Calnali","Cardonal","Cuautepec de Hinojosa","Chapantongo","Chapulhuacán","Chilcuautla","Eloxochitlán","Emiliano Zapata","Epazoyucan","Francisco I. Madero","Huasca de Ocampo","Huautla","Huazalingo","Huehuetla","Huejutla de Reyes","Huichapan","Ixmiquilpan","Jacala de Ledezma","Jaltocán","Juárez Hidalgo","Lolotla","Metepec","San Agustín Metzquititlán","Metztitlán","Mineral del Chico","Mineral del Monte","La Misión","Mixquiahuala de Juárez","Molango de Escamilla","Nicolás Flores","Nopala de Villagrán","Omitlán de Juárez","San Felipe Orizatlán","Pacula","Pachuca de Soto","Pisaflores","Progreso de Obregón","Mineral de la Reforma","San Agustín Tlaxiaca","San Bartolo Tutotepec","San Salvador","Santiago de Anaya","Santiago Tulantepec de Lugo Guerrero","Singuilucan","Tasquillo","Tecozautla","Tenango de Doria","Tepeapulco","Tepehuacán de Guerrero","Tepeji del Río de Ocampo","Tepetitlán","Zempoala","Zimapán","Tetepango","Villa de Tezontepec","Tezontepec de Aldama","Tianguistengo","Tizayuca","Tlahuelilpan","Tlahuiltepa","Tlanalapa","Tlanchinol","Tlaxcoapan","Tolcayuca","Tula de Allende","Tulancingo de Bravo","Xochiatipan","Xochicoatlán","Yahualica","Zacualtipán de Ángeles","Zapotlán de Juárez"]
+        ]
+    }
+    </script>
+
+    <script>
+        // Este script es el que normalmente ejecutaría htmlwidgets.js
+        // Pero lo simplificamos para que actúe sobre la configuración de arriba
+        document.addEventListener('DOMContentLoaded', function() {
+            var map = L.map('map').setView([0, 0], 2); // Mapa base, se reajustará después
+
+            L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+                attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+            }).addTo(map);
+
+            // Intentamos leer la configuración del script JSON
+            var configElement = document.getElementById('map-config');
+            if (configElement) {
+                try {
+                    var config = JSON.parse(configElement.textContent);
+                    var method = config.method;
+                    var args = config.args;
+
+                    // Simulamos la lógica de htmlwidgets.js o tu propia lógica
+                    if (method === "addPolygons" && args.length >= 1) {
+                        var geometry = args[0]; // Esto será el placeholder O los datos reales
+                        var options = args[1]; // Los estilos
+
+                        // Si la geometría es un string, significa que el placeholder no fue reemplazado.
+                        // Esto no debería pasar en el escenario final, pero es una buena verificación.
+                        if (typeof geometry === 'string' && geometry.includes('PLACEHOLDER')) {
+                             console.error("Error: Geometría no reemplazada. Placeholder encontrado.");
+                             return;
+                        }
+
+                        // Asumiendo que 'geometry' ya es un array de coordenadas de Leaflet
+                        if (Array.isArray(geometry) && geometry.length > 0) {
+                            L.polygon(geometry, options).addTo(map);
+
+                            // Ajustar la vista del mapa a la geometría
+                            var poly = L.polygon(geometry);
+                            if (poly.getBounds().isValid()) {
+                                map.fitBounds(poly.getBounds());
+                            } else {
+                                map.setView([20.1, -98.4], 10); // Vista por defecto si no hay datos válidos
+                            }
+                        } else {
+                            console.warn("No hay geometría válida para añadir.");
+                        }
+                    }
+                } catch (e) {
+                    console.error("Error parsing map config or adding layer:", e);
+                }
+            }
+        });
+    </script>
+</body>
+</html>

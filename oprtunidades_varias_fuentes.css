@@ -1,0 +1,219 @@
+body {
+    font-family: Montserrat, sans-serif;
+    background-color: #ffffff;
+    margin: 0;
+    
+}
+.grid-container-problemas {
+    width: 40vw; /* Ancho del contenedor */
+    height: 100vh; /* Ocupa toda la altura de la ventana */
+    margin-inline: auto;
+    display: grid;
+    grid-template-columns: 1fr; /* Una sola columna que ocupa todo el espacio disponible */
+    gap: 1.5vh; /* Gap basado en vh para escalabilidad */
+    align-items: center; /* Centra las tarjetas verticalmente */
+    justify-content: center; /* Centra las tarjetas horizontalmente */
+    padding: 1.5vh; /* Padding basado en vh */
+    box-sizing: border-box;
+    /* La altura de las tarjetas dentro se ajustará dinámicamente */
+}
+
+.card-problemas {
+    --grad: rgb(212,193,156), rgb(98,17,50);
+    padding: 2.5vh; /* Padding basado en vh */
+    background-image: linear-gradient(to bottom left, #e0e4e5, #f2f6f9);
+    border-radius: 2vh; /* Border-radius basado en vh */
+    gap: 0.5vh; /* Gap entre elementos internos de la tarjeta basado en vh */
+    /* La altura base y de transición será manejada por .active y :not(.active) */
+    display: grid;
+    grid-template-areas:
+        'title icon'
+        'bar bar'
+        'subtitle subtitle'
+        'content content';
+    grid-template-columns: 1fr auto;
+    font-family: 'Montserrat', sans-serif; /* Asegura Montserrat en la tarjeta */
+    color: #444447;
+    box-shadow:
+        inset -2px 2px hsl(0 0 100% / 1),
+        -1vw 1vw 2vw hsl(0 0 0 / .15); /* Sombra basada en vw */
+    transition: height 0.5s ease-out, background-image 0.5s ease-out, box-shadow 0.5s ease-out, transform 0.5s ease-out; /* Transiciones suaves */
+    cursor: pointer; /* Indica que la tarjeta es clickeable */
+    overflow: hidden; /* Para que el contenido no se desborde al encogerse */
+}
+
+/* Estilos de HOVER (adicionales a los de click, si quieres mantener un pequeño efecto al pasar el ratón) */
+.card-problemas:hover {
+    background-image: linear-gradient(to bottom left, #e0e4e5, rgba(212,193,156,0.5));
+    transform: translateY(-0.5vh); /* Ligero levantamiento al pasar el ratón */
+    box-shadow:
+        inset -2px 2px hsl(0 0 100% / 1),
+        -1.5vw 1.5vw 3vw hsl(0 0 0 / .2); /* Sombra ligeramente más grande */
+    overflow-y: scroll;
+}
+
+/* Estilos para la tarjeta ACTIVA */
+.card-problemas.active {
+    background-image: linear-gradient(to top left, rgba(212,193,156,0.1), rgba(98,17,50,0.41)); /* Un rojo más vibrante */
+    height: 40vh; /* La tarjeta activa ocupa más altura */
+    box-shadow:
+        inset -2px 2px hsl(0 0 100% / 1),
+        -2.5vw 2.5vw 5vw hsl(0 0 0 / .35); /* Sombra más pronunciada */
+    color: #222; /* Texto un poco más oscuro para mejor contraste */
+    transform: translateY(0); /* Asegura que no tenga levantamiento adicional */
+}
+
+/* Estilos para las tarjetas INACTIVAS */
+.card-problemas:not(.active) {
+    background-image: linear-gradient(to bottom left, rgba(212,193,156,0.1), rgba(179,148,93,0.35)); /* Un azul suave para las inactivas */
+    height: 5vh; /* Las tarjetas inactivas se encogen */
+    box-shadow:
+        inset -2px 2px hsl(0 0 100% / 1),
+        -0.5vw 0.5vw 1vw hsl(0 0 0 / .1); /* Sombra muy suave */
+}
+
+/* Estilos internos de la tarjeta */
+.card-problemas .title-problemas {
+    font-size: 2.5vh; /* Tamaño de fuente en vh */
+    grid-area: title;
+    align-self: end;
+    text-transform: uppercase;
+    font-weight: 500;
+    word-break: break-all;
+    line-height: 1.2; /* Ajuste para evitar cortes */
+}
+.card-problemas .subtitle-problemas {
+    font-size: 2.0vh; /* Tamaño de fuente en vh */
+    grid-area: subtitle;
+    align-self: end;
+    font-weight: 500;
+    word-break:keep-all;
+    line-height: 1.2; /* Ajuste para evitar cortes */
+}
+
+.card-problemas .icon-problemas {
+    grid-area: icon;
+    font-size: 4vh; /* Tamaño del icono en vh */
+    /* Puedes ajustar el tamaño del icono de 0 a un valor específico aquí si quieres que aparezca/desaparezca */
+}
+.card-problemas .icon-problemas > i {
+    color: transparent;
+    background: linear-gradient(to right, var(--grad));
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+
+.card-problemas .content-problemas {
+    grid-area: content;
+    overflow: hidden; /* Oculta el contenido si la tarjeta es pequeña */
+    /* La altura se ajustará automáticamente con la altura de la tarjeta */
+    opacity: 0; /* Por defecto oculto para que no se vea al encogerse */
+    transition: opacity 0.3s ease-out 0.2s; /* Transición con delay para la opacidad */
+}
+/* Habilitar scroll y mostrar contenido cuando la tarjeta está activa */
+.card-problemas.active .content-problemas {
+    opacity: 1; /* Muestra el contenido cuando la tarjeta está activa */
+    transition-delay: 0.5s; /* Un ligero delay para que aparezca después de la expansión */
+    overflow-y: scroll; /* Habilita el scroll vertical cuando la tarjeta está activa */
+}
+/* Habilitar scroll cuando la tarjeta es hovereada (incluso si no está activa) */
+.content-problemas:hover .content-problemas {
+    overflow-y: scroll; /* Habilita el scroll vertical al hacer hover */
+}
+
+.card-problemas .content-problemas > *:first-child { margin-top: 0;}
+.card-problemas .content-problemas > *:last-child { margin-bottom: 0;}
+
+
+.card-problemas::after {
+    content: "";
+    grid-area: bar;
+    height: 0.3vh; /* Altura de la barra en vh */
+    background-image: linear-gradient(90deg, var(--grad));
+}
+
+/* Puedes mantener estos estilos si te gustan los bordes asimétricos */
+.card-problemas:first-child {
+    border-top-left-radius: 4vh;
+}
+.card-problemas:last-child {
+    border-bottom-right-radius: 4vh;
+}
+
+.main-list {
+    list-style: disc; /* Usar bullets de disco nativos */
+    padding-left: 25px; /* Espacio para los bullets */
+    margin: 0;
+    width: 400px; /* Ancho fijo para la lista principal */
+    max-width: 95%; /* Asegura que sea responsivo en pantallas pequeñas */
+}
+
+/* Estilos para cada ítem principal de la lista (Tema 1, Tema 2, etc.) */
+.main-list > li {
+    position: relative; /* Necesario para el posicionamiento del sub-list */
+    padding: 8px 0; /* Padding simple para cada ítem */
+    /* cursor: pointer; -- Eliminado de aquí, se aplica al enlace */
+    color: #333; /* Color de texto oscuro */
+    font-weight: 600; /* Texto principal en negrita */
+    /* transition: background-color 0.2s ease; -- Eliminado, el fondo se cambia con la clase 'active' */
+}
+
+/* Estilos para el enlace dentro de los ítems de la lista principal */
+.main-list > li > a {
+    color: inherit; /* Hereda el color del texto del padre (li) */
+    text-decoration: none;
+    display: inline; /* Para que el enlace fluya con el bullet nativo */
+    cursor: pointer; /* El cursor de puntero solo en el texto del tema */
+    transition: background-color 0.2s ease; /* Transición suave al hover del texto */
+}
+
+.main-list > li > a:hover {
+    background-color: #e9e9e9; /* Ligero cambio de fondo al pasar el ratón por el texto */
+}
+
+/* Estilo para el ítem principal cuando su sub-lista está activa/abierta */
+.main-list > li.active > a {
+    background-color: #e9e9e9; /* Fondo cuando el tema está activo (abierto) */
+}
+
+
+/* Estilos del sub-list (inicialmente oculto) */
+.sub-list {
+    list-style: circle; /* Usar bullets de círculo nativos para subtemas */
+    padding-left: 20px; /* Indentación para los subtemas */
+    margin: 5px 0 5px 0; /* Espacio vertical entre sub-list y otros elementos */
+    overflow: hidden; /* Para que la transición de altura funcione correctamente */
+
+    /* Ocultar el sub-list por defecto */
+    max-height: 0; /* Oculta el sub-list con una altura máxima de 0 */
+    opacity: 0; /* Para una transición suave de fade */
+    visibility: hidden; /* Para que no sea interactuable cuando está oculto */
+    transition: max-height 0.5s ease-out, opacity 0.5s ease-out, visibility 0.5s ease-out; /* Transición suave */
+}
+
+/* Estilos para cada ítem dentro del sub-list (subtema 1, subtema 2, etc.) */
+.sub-list li {
+    padding: 5px 0; /* Padding simple */
+    color: #555; /* Color de texto más claro para subtemas */
+    font-weight: normal; /* Subtemas con fuente normal */
+    transition: background-color 0.2s ease; /* Transición suave al hover */
+}
+
+.sub-list li a {
+    color: inherit; /* Hereda el color del texto del padre (li) */
+    text-decoration: none; /* ¡Elimina el subrayado de los enlaces! */
+    display: block; /* Hace que toda el área del padding sea clickeable */
+    cursor: pointer; /* Muestra el cursor de puntero */
+}
+
+.sub-list li:hover {
+    background-color: #f0f0f0; /* Ligero cambio de fondo al pasar el ratón por sub-ítems */
+    color: #222; /* Texto un poco más oscuro al pasar el ratón */
+}
+
+/* Mostrar el sub-list cuando tiene la clase 'active' */
+.sub-list.active {
+    max-height: 500px; /* Un valor lo suficientemente grande para mostrar todo el contenido */
+    opacity: 1; /* Hace que aparezca con fade */
+    visibility: visible; /* Hace que sea interactuable */
+}
