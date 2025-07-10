@@ -322,6 +322,6 @@ cards_fuentes.forEach(card => {
 // Set the default height when the page loads
 document.addEventListener('DOMContentLoaded', setDefaultHeightOnAllCards);
 
-
+    setTimeout(document.getElementsByClassName('card-problemas')[0].click(),300)
   console.log(values);
 });
