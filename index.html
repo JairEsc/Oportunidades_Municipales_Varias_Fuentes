@@ -24,7 +24,7 @@
     <div id="mapa-problemas" style="width: 60vw; height: 100vh;background-color: antiquewhite;">
         <iframe id='mapasIframe' src="Mapas_Alternos/Indicadores_tendencia_negativa.html" frameborder="0" style="width: 100%;height: 100%;"></iframe>
         <iframe id='mapasIframe2' src="Mapas_Alternos/percepcion_publica_encuesta.html" frameborder="0" style="width: 100%;height: 100%;display: none;"></iframe>
-        <iframe id='mapasIframe3' src="Mapas_Alternos/incidencia_delictiva.html" frameborder="0" style="width: 100%;height: 100%;display: none;"></iframe>
+        <iframe id='mapasIframe3' src="Mapas_Alternos/incidencia_delictiva_P.html" frameborder="0" style="width: 100%;height: 100%;display: none;"></iframe>
         <iframe id='mapasIframe4' src="Mapas_Alternos/Web_Scrapping.html" frameborder="0" style="width: 100%;height: 100%;display: none;"></iframe>
         <!-- Aquí va el mapa web -->
     </div>
@@ -34,100 +34,4299 @@
             <div class="card-problemas">
                 <div class="title-problemas">Indicadores en Tendencia Negativa</div>
                 <div class="subtitle-problemas">Colección de 32 indicadores clasificados en 7 temas</div>
-                <div class="content-problemas">
+                <div class="content-problemas" style="height: 1px;" >
                 <p></p>
-                <ul class="main-list">
-                    <li class="has-submenu">
-                        <a href="#">Desarrollo Económico</a>
-                        <ul class="sub-list">
-                            <li><a href="#">PIB per cápita</a></li>
-                            <li><a href="#">PIB turístico per cápita</a></li>
-                            <li><a href="#">Empleos formales generados ante el IMSS</a></li>
-                        </ul>
-                    </li>
-                    <li class="has-submenu">
-                        <a href="#">Pobreza y Carencias</a>
-                        <ul class="sub-list">
-                            <li><a href="#">Rezago Educativo</a></li>
-                            <li><a href="#">Pobreza</a></li>
-                            <li><a href="#">Índice de rezago social</a></li>
-                            <li><a href="#">índice de marginación</a></li>
-                            <li><a href="#">Pobreza extrema</a></li>
-                            <li><a href="#">Acceso a la seguridad social</a></li>
-                            <li><a href="#">Calidad y espacios en la vivienda</a></li>
-                            <li><a href="#">Acceso a los servicios básicos en la vivienda</a></li>
-                            <li><a href="#">Acceso a la alimentación</a></li>
-                            <li><a href="#">Ingreso inferior a la línea de pobreza</a></li>
-                            <li><a href="#">Acceso a los servicios de salud</a></li>
-                        </ul>
-                    </li>
-                    <li class="has-submenu">
-                        <a href="#">Salud</a>
-                        <ul class="sub-list">
-                            <li><a href="#">Camas  por cada mil habitantes</a></li>
-                            <li><a href="#">Personal médico por cada mil habitantes</a></li>
-                            <li><a href="#">Población con derecho a los servicios de salud</a></li>
-                            <li><a href="#">Consultorios por cada mil habitantes</a></li>
-                        </ul>
-                    </li>
-                    <li class="has-submenu">
-                        <a href="#">Educación</a>
-                        <ul class="sub-list">
-                            <li><a href="#">Grado promedio de escolaridad</a></li>
-                            <li><a href="#">% Deserción en educación media superior</a></li>
-                            <li><a href="#">% Analfabetismo</a></li>
-                        </ul>
-                    </li>
-                    <li class="has-submenu">
-                        <a href="#">Medio Ambiente</a>
-                        <ul class="sub-list">
-                            <li><a href="#">Toneladas de basura generadas por cada mil habitantes</a></li>
-                            <li><a href="#">Sitios de disposición final</a></li>
-                            <li><a href="#">Volumen tratado en las PTARs</a></li>
-                        </ul>
-                    </li>
-                    <li class="has-submenu">
-                        <a href="#">Seguridad Pública</a>
-                        <ul class="sub-list">
-                            <li><a href="#">Incidencia Delictiva del Fuero Común</a></li>
-                            <li><a href="#">Tasa de Prevalencia delictiva por cada 1000 habitantes</a></li>
-
-                        </ul>
-                    </li>
-                    <li class="has-submenu">
-                        <a href="#">Servicios Básicos y Vivienda</a>
-                        <ul class="sub-list">
-                            <li><a href="#">Hacinamiento</a></li>
-                            <li><a href="#">% Viviendas con menor abatimiento de Agua potable entubada</a></li>
-                            <li><a href="#">% Viviendas sin sanitario ni drenaje</a></li>
-                            <li><a href="#">% Viviendas sin Energia electrica</a></li>
-                            <li><a href="#">% Viviendas con menor disponibilidad de internet</a></li>
-                        </ul>
-                    </li>
+                <ul id="temas_indicadores_tend_negativa" class="main-list">
+                    
                 </ul>
                 </div>
             </div>
             
             <div class="card-problemas">
                 <div class="title-problemas">Percepción Pública</div>
-                <div class="subtitle-problemas">A partir de encuesta post-informe, se preguntó a la población "¿Cuál consideras la principal problemática del Estado?". Las respuestas se clasifican en 7 temas:</div>
-                <div class="content-problemas">
+                <div class="subtitle-problemas">A partir de encuesta post-informe, se preguntó a la población "¿Cuál consideras la principal problemática del Estado?". Las respuestas se clasifican en 15 temas y se calcula el porcentaje de respuestas para cada tema:</div>
+                <div class="content-problemas" style="overflow-y: hidden;">
                 <p></p>
+                <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:90%; overflow-x: scroll; width:100%; ">
+                    <table class=" lightable-paper" style="font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
+                        <thead>
+                        <tr>
+                        <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+                        Municipio
+                        </th>
+                        <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+                        Inseguridad
+                        </th>
+                        <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+                        Empleo
+                        </th>
+                        <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+                        Infraestructura
+                        </th>
+                        <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+                        Economía
+                        </th>
+                        <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+                        Agua
+                        </th>
+                        <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+                        Corrupción
+                        </th>
+                        <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+                        Servicios Públicos
+                        </th>
+                        <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+                        Ineficiencia Y Mala Gestión
+                        </th>
+                        <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+                        Desigualdad Social
+                        </th>
+                        <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+                        Salud
+                        </th>
+                        <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+                        Problemas Sociales
+                        </th>
+                        <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+                        Medio Ambiente
+                        </th>
+                        <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+                        Programas Sociales
+                        </th>
+                        <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+                        Educación
+                        </th>
+                        <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+                        Justicia
+                        </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                        <td style="text-align:left;">
+                        Acatlán
+                        </td>
+                        <td style="text-align:left;">
+                        68.2%
+                        </td>
+                        <td style="text-align:left;">
+                        9.5%
+                        </td>
+                        <td style="text-align:left;">
+                        5.8%
+                        </td>
+                        <td style="text-align:left;">
+                        3.3%
+                        </td>
+                        <td style="text-align:left;">
+                        1.4%
+                        </td>
+                        <td style="text-align:left;">
+                        4.8%
+                        </td>
+                        <td style="text-align:left;">
+                        1.3%
+                        </td>
+                        <td style="text-align:left;">
+                        1.2%
+                        </td>
+                        <td style="text-align:left;">
+                        1.6%
+                        </td>
+                        <td style="text-align:left;">
+                        1.6%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        1.3%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align:left;">
+                        Acaxochitlán
+                        </td>
+                        <td style="text-align:left;">
+                        52.2%
+                        </td>
+                        <td style="text-align:left;">
+                        7.5%
+                        </td>
+                        <td style="text-align:left;">
+                        10.9%
+                        </td>
+                        <td style="text-align:left;">
+                        10.6%
+                        </td>
+                        <td style="text-align:left;">
+                        1.5%
+                        </td>
+                        <td style="text-align:left;">
+                        3.5%
+                        </td>
+                        <td style="text-align:left;">
+                        2.9%
+                        </td>
+                        <td style="text-align:left;">
+                        2.5%
+                        </td>
+                        <td style="text-align:left;">
+                        1.1%
+                        </td>
+                        <td style="text-align:left;">
+                        2.7%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        2.9%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        1.7%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align:left;">
+                        Actopan
+                        </td>
+                        <td style="text-align:left;">
+                        58.9%
+                        </td>
+                        <td style="text-align:left;">
+                        17%
+                        </td>
+                        <td style="text-align:left;">
+                        2.4%
+                        </td>
+                        <td style="text-align:left;">
+                        4%
+                        </td>
+                        <td style="text-align:left;">
+                        0.3%
+                        </td>
+                        <td style="text-align:left;">
+                        7.7%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        2.6%
+                        </td>
+                        <td style="text-align:left;">
+                        1.2%
+                        </td>
+                        <td style="text-align:left;">
+                        3.3%
+                        </td>
+                        <td style="text-align:left;">
+                        0.8%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        1%
+                        </td>
+                        <td style="text-align:left;">
+                        0.9%
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align:left;">
+                        Agua Blanca de Iturbide
+                        </td>
+                        <td style="text-align:left;">
+                        64.1%
+                        </td>
+                        <td style="text-align:left;">
+                        4.7%
+                        </td>
+                        <td style="text-align:left;">
+                        12.4%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        1.8%
+                        </td>
+                        <td style="text-align:left;">
+                        14.6%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        2.3%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align:left;">
+                        Ajacuba
+                        </td>
+                        <td style="text-align:left;">
+                        67.5%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        2.7%
+                        </td>
+                        <td style="text-align:left;">
+                        19.2%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        3.5%
+                        </td>
+                        <td style="text-align:left;">
+                        3.3%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        3%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0.8%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align:left;">
+                        Alfajayucan
+                        </td>
+                        <td style="text-align:left;">
+                        20.5%
+                        </td>
+                        <td style="text-align:left;">
+                        14.3%
+                        </td>
+                        <td style="text-align:left;">
+                        6.2%
+                        </td>
+                        <td style="text-align:left;">
+                        18.3%
+                        </td>
+                        <td style="text-align:left;">
+                        2.9%
+                        </td>
+                        <td style="text-align:left;">
+                        15.7%
+                        </td>
+                        <td style="text-align:left;">
+                        2.3%
+                        </td>
+                        <td style="text-align:left;">
+                        2.2%
+                        </td>
+                        <td style="text-align:left;">
+                        4.7%
+                        </td>
+                        <td style="text-align:left;">
+                        3.9%
+                        </td>
+                        <td style="text-align:left;">
+                        3.4%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        5.5%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align:left;">
+                        Almoloya
+                        </td>
+                        <td style="text-align:left;">
+                        90.4%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        6.1%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        2.1%
+                        </td>
+                        <td style="text-align:left;">
+                        1.4%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align:left;">
+                        Apan
+                        </td>
+                        <td style="text-align:left;">
+                        79.3%
+                        </td>
+                        <td style="text-align:left;">
+                        5%
+                        </td>
+                        <td style="text-align:left;">
+                        5.2%
+                        </td>
+                        <td style="text-align:left;">
+                        1.3%
+                        </td>
+                        <td style="text-align:left;">
+                        2.7%
+                        </td>
+                        <td style="text-align:left;">
+                        3.1%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        1.4%
+                        </td>
+                        <td style="text-align:left;">
+                        1%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        1.1%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align:left;">
+                        El Arenal
+                        </td>
+                        <td style="text-align:left;">
+                        47.6%
+                        </td>
+                        <td style="text-align:left;">
+                        7.5%
+                        </td>
+                        <td style="text-align:left;">
+                        3.9%
+                        </td>
+                        <td style="text-align:left;">
+                        15.8%
+                        </td>
+                        <td style="text-align:left;">
+                        4.3%
+                        </td>
+                        <td style="text-align:left;">
+                        9.1%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        3.6%
+                        </td>
+                        <td style="text-align:left;">
+                        8.1%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align:left;">
+                        Atitalaquia
+                        </td>
+                        <td style="text-align:left;">
+                        82.9%
+                        </td>
+                        <td style="text-align:left;">
+                        2.9%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        3.9%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        1.3%
+                        </td>
+                        <td style="text-align:left;">
+                        1.7%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        2.1%
+                        </td>
+                        <td style="text-align:left;">
+                        1.5%
+                        </td>
+                        <td style="text-align:left;">
+                        3.8%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align:left;">
+                        Atlapexco
+                        </td>
+                        <td style="text-align:left;">
+                        40.9%
+                        </td>
+                        <td style="text-align:left;">
+                        5.5%
+                        </td>
+                        <td style="text-align:left;">
+                        9.2%
+                        </td>
+                        <td style="text-align:left;">
+                        14.8%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        3.4%
+                        </td>
+                        <td style="text-align:left;">
+                        11.5%
+                        </td>
+                        <td style="text-align:left;">
+                        3.4%
+                        </td>
+                        <td style="text-align:left;">
+                        5.1%
+                        </td>
+                        <td style="text-align:left;">
+                        6.2%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align:left;">
+                        Atotonilco el Grande
+                        </td>
+                        <td style="text-align:left;">
+                        34.1%
+                        </td>
+                        <td style="text-align:left;">
+                        5.4%
+                        </td>
+                        <td style="text-align:left;">
+                        3.3%
+                        </td>
+                        <td style="text-align:left;">
+                        29.7%
+                        </td>
+                        <td style="text-align:left;">
+                        8.9%
+                        </td>
+                        <td style="text-align:left;">
+                        9.7%
+                        </td>
+                        <td style="text-align:left;">
+                        1.3%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        1.6%
+                        </td>
+                        <td style="text-align:left;">
+                        4.6%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        1.6%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align:left;">
+                        Atotonilco de Tula
+                        </td>
+                        <td style="text-align:left;">
+                        84.7%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        1.3%
+                        </td>
+                        <td style="text-align:left;">
+                        1.8%
+                        </td>
+                        <td style="text-align:left;">
+                        3.4%
+                        </td>
+                        <td style="text-align:left;">
+                        2.2%
+                        </td>
+                        <td style="text-align:left;">
+                        1.8%
+                        </td>
+                        <td style="text-align:left;">
+                        2%
+                        </td>
+                        <td style="text-align:left;">
+                        0.6%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        1%
+                        </td>
+                        <td style="text-align:left;">
+                        1.1%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align:left;">
+                        Calnali
+                        </td>
+                        <td style="text-align:left;">
+                        32.4%
+                        </td>
+                        <td style="text-align:left;">
+                        14.4%
+                        </td>
+                        <td style="text-align:left;">
+                        7%
+                        </td>
+                        <td style="text-align:left;">
+                        11.9%
+                        </td>
+                        <td style="text-align:left;">
+                        7.1%
+                        </td>
+                        <td style="text-align:left;">
+                        7%
+                        </td>
+                        <td style="text-align:left;">
+                        10.4%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        2.2%
+                        </td>
+                        <td style="text-align:left;">
+                        3.1%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        4.4%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align:left;">
+                        Cardonal
+                        </td>
+                        <td style="text-align:left;">
+                        55.1%
+                        </td>
+                        <td style="text-align:left;">
+                        11.1%
+                        </td>
+                        <td style="text-align:left;">
+                        3.4%
+                        </td>
+                        <td style="text-align:left;">
+                        12%
+                        </td>
+                        <td style="text-align:left;">
+                        9.6%
+                        </td>
+                        <td style="text-align:left;">
+                        3.7%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        1.6%
+                        </td>
+                        <td style="text-align:left;">
+                        0.7%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        2.8%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align:left;">
+                        Cuautepec de Hinojosa
+                        </td>
+                        <td style="text-align:left;">
+                        62.4%
+                        </td>
+                        <td style="text-align:left;">
+                        8.5%
+                        </td>
+                        <td style="text-align:left;">
+                        4.2%
+                        </td>
+                        <td style="text-align:left;">
+                        6%
+                        </td>
+                        <td style="text-align:left;">
+                        2.2%
+                        </td>
+                        <td style="text-align:left;">
+                        5.3%
+                        </td>
+                        <td style="text-align:left;">
+                        0.6%
+                        </td>
+                        <td style="text-align:left;">
+                        5.4%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        3.7%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        1.1%
+                        </td>
+                        <td style="text-align:left;">
+                        0.6%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align:left;">
+                        Chapantongo
+                        </td>
+                        <td style="text-align:left;">
+                        60%
+                        </td>
+                        <td style="text-align:left;">
+                        21.7%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        6.5%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        3.8%
+                        </td>
+                        <td style="text-align:left;">
+                        2.4%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        2.6%
+                        </td>
+                        <td style="text-align:left;">
+                        2.8%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align:left;">
+                        Chapulhuacán
+                        </td>
+                        <td style="text-align:left;">
+                        36.3%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        21%
+                        </td>
+                        <td style="text-align:left;">
+                        16%
+                        </td>
+                        <td style="text-align:left;">
+                        3.1%
+                        </td>
+                        <td style="text-align:left;">
+                        2.3%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        4%
+                        </td>
+                        <td style="text-align:left;">
+                        2.8%
+                        </td>
+                        <td style="text-align:left;">
+                        10.4%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        4.2%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align:left;">
+                        Chilcuautla
+                        </td>
+                        <td style="text-align:left;">
+                        59.1%
+                        </td>
+                        <td style="text-align:left;">
+                        15.1%
+                        </td>
+                        <td style="text-align:left;">
+                        3.4%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        10.1%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        1.5%
+                        </td>
+                        <td style="text-align:left;">
+                        2.5%
+                        </td>
+                        <td style="text-align:left;">
+                        1.5%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        3.7%
+                        </td>
+                        <td style="text-align:left;">
+                        1.4%
+                        </td>
+                        <td style="text-align:left;">
+                        1.7%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align:left;">
+                        Eloxochitlán
+                        </td>
+                        <td style="text-align:left;">
+                        32.3%
+                        </td>
+                        <td style="text-align:left;">
+                        19.5%
+                        </td>
+                        <td style="text-align:left;">
+                        2.4%
+                        </td>
+                        <td style="text-align:left;">
+                        14.2%
+                        </td>
+                        <td style="text-align:left;">
+                        15.2%
+                        </td>
+                        <td style="text-align:left;">
+                        6.9%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        6.8%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        2.7%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align:left;">
+                        Emiliano Zapata
+                        </td>
+                        <td style="text-align:left;">
+                        61.5%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        10%
+                        </td>
+                        <td style="text-align:left;">
+                        8.6%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        4.6%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        5.9%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        4.3%
+                        </td>
+                        <td style="text-align:left;">
+                        5.2%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align:left;">
+                        Epazoyucan
+                        </td>
+                        <td style="text-align:left;">
+                        73.2%
+                        </td>
+                        <td style="text-align:left;">
+                        3%
+                        </td>
+                        <td style="text-align:left;">
+                        3.1%
+                        </td>
+                        <td style="text-align:left;">
+                        6.2%
+                        </td>
+                        <td style="text-align:left;">
+                        2.1%
+                        </td>
+                        <td style="text-align:left;">
+                        4.2%
+                        </td>
+                        <td style="text-align:left;">
+                        3%
+                        </td>
+                        <td style="text-align:left;">
+                        5.2%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align:left;">
+                        Francisco I. Madero
+                        </td>
+                        <td style="text-align:left;">
+                        59.1%
+                        </td>
+                        <td style="text-align:left;">
+                        5.8%
+                        </td>
+                        <td style="text-align:left;">
+                        1.8%
+                        </td>
+                        <td style="text-align:left;">
+                        3.3%
+                        </td>
+                        <td style="text-align:left;">
+                        2.7%
+                        </td>
+                        <td style="text-align:left;">
+                        3.1%
+                        </td>
+                        <td style="text-align:left;">
+                        1%
+                        </td>
+                        <td style="text-align:left;">
+                        5.9%
+                        </td>
+                        <td style="text-align:left;">
+                        3.9%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        3.1%
+                        </td>
+                        <td style="text-align:left;">
+                        0.9%
+                        </td>
+                        <td style="text-align:left;">
+                        5.5%
+                        </td>
+                        <td style="text-align:left;">
+                        4.1%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align:left;">
+                        Huasca de Ocampo
+                        </td>
+                        <td style="text-align:left;">
+                        48.9%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        22.9%
+                        </td>
+                        <td style="text-align:left;">
+                        10.7%
+                        </td>
+                        <td style="text-align:left;">
+                        2%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        13.1%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        2.3%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align:left;">
+                        Huautla
+                        </td>
+                        <td style="text-align:left;">
+                        23.7%
+                        </td>
+                        <td style="text-align:left;">
+                        6%
+                        </td>
+                        <td style="text-align:left;">
+                        7.1%
+                        </td>
+                        <td style="text-align:left;">
+                        6.2%
+                        </td>
+                        <td style="text-align:left;">
+                        3.3%
+                        </td>
+                        <td style="text-align:left;">
+                        13.7%
+                        </td>
+                        <td style="text-align:left;">
+                        5.4%
+                        </td>
+                        <td style="text-align:left;">
+                        2.3%
+                        </td>
+                        <td style="text-align:left;">
+                        21.8%
+                        </td>
+                        <td style="text-align:left;">
+                        6.6%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        3.8%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align:left;">
+                        Huazalingo
+                        </td>
+                        <td style="text-align:left;">
+                        27.4%
+                        </td>
+                        <td style="text-align:left;">
+                        20.7%
+                        </td>
+                        <td style="text-align:left;">
+                        11.2%
+                        </td>
+                        <td style="text-align:left;">
+                        12%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        2.4%
+                        </td>
+                        <td style="text-align:left;">
+                        17.3%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        8.9%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align:left;">
+                        Huehuetla
+                        </td>
+                        <td style="text-align:left;">
+                        35%
+                        </td>
+                        <td style="text-align:left;">
+                        4.4%
+                        </td>
+                        <td style="text-align:left;">
+                        13.3%
+                        </td>
+                        <td style="text-align:left;">
+                        6.8%
+                        </td>
+                        <td style="text-align:left;">
+                        5.2%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        2.2%
+                        </td>
+                        <td style="text-align:left;">
+                        2.7%
+                        </td>
+                        <td style="text-align:left;">
+                        1.8%
+                        </td>
+                        <td style="text-align:left;">
+                        22%
+                        </td>
+                        <td style="text-align:left;">
+                        2.4%
+                        </td>
+                        <td style="text-align:left;">
+                        1.1%
+                        </td>
+                        <td style="text-align:left;">
+                        3.2%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align:left;">
+                        Huejutla de Reyes
+                        </td>
+                        <td style="text-align:left;">
+                        29.7%
+                        </td>
+                        <td style="text-align:left;">
+                        11.9%
+                        </td>
+                        <td style="text-align:left;">
+                        6.2%
+                        </td>
+                        <td style="text-align:left;">
+                        17.6%
+                        </td>
+                        <td style="text-align:left;">
+                        5.1%
+                        </td>
+                        <td style="text-align:left;">
+                        2.7%
+                        </td>
+                        <td style="text-align:left;">
+                        4.2%
+                        </td>
+                        <td style="text-align:left;">
+                        3.4%
+                        </td>
+                        <td style="text-align:left;">
+                        4.4%
+                        </td>
+                        <td style="text-align:left;">
+                        6.8%
+                        </td>
+                        <td style="text-align:left;">
+                        1.7%
+                        </td>
+                        <td style="text-align:left;">
+                        2.3%
+                        </td>
+                        <td style="text-align:left;">
+                        3.3%
+                        </td>
+                        <td style="text-align:left;">
+                        0.7%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align:left;">
+                        Huichapan
+                        </td>
+                        <td style="text-align:left;">
+                        56.3%
+                        </td>
+                        <td style="text-align:left;">
+                        9.5%
+                        </td>
+                        <td style="text-align:left;">
+                        1.9%
+                        </td>
+                        <td style="text-align:left;">
+                        9.8%
+                        </td>
+                        <td style="text-align:left;">
+                        1.7%
+                        </td>
+                        <td style="text-align:left;">
+                        3%
+                        </td>
+                        <td style="text-align:left;">
+                        5.2%
+                        </td>
+                        <td style="text-align:left;">
+                        4.4%
+                        </td>
+                        <td style="text-align:left;">
+                        2.1%
+                        </td>
+                        <td style="text-align:left;">
+                        4.1%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0.8%
+                        </td>
+                        <td style="text-align:left;">
+                        1.3%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align:left;">
+                        Ixmiquilpan
+                        </td>
+                        <td style="text-align:left;">
+                        66.9%
+                        </td>
+                        <td style="text-align:left;">
+                        10.4%
+                        </td>
+                        <td style="text-align:left;">
+                        0.9%
+                        </td>
+                        <td style="text-align:left;">
+                        4.4%
+                        </td>
+                        <td style="text-align:left;">
+                        1.1%
+                        </td>
+                        <td style="text-align:left;">
+                        3.9%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        2.3%
+                        </td>
+                        <td style="text-align:left;">
+                        1.5%
+                        </td>
+                        <td style="text-align:left;">
+                        1.8%
+                        </td>
+                        <td style="text-align:left;">
+                        1.3%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        1.9%
+                        </td>
+                        <td style="text-align:left;">
+                        2%
+                        </td>
+                        <td style="text-align:left;">
+                        1.7%
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align:left;">
+                        Jacala de Ledezma
+                        </td>
+                        <td style="text-align:left;">
+                        47.5%
+                        </td>
+                        <td style="text-align:left;">
+                        18.8%
+                        </td>
+                        <td style="text-align:left;">
+                        8%
+                        </td>
+                        <td style="text-align:left;">
+                        8.7%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        6.5%
+                        </td>
+                        <td style="text-align:left;">
+                        5.8%
+                        </td>
+                        <td style="text-align:left;">
+                        2.5%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        2.1%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align:left;">
+                        Jaltocán
+                        </td>
+                        <td style="text-align:left;">
+                        10.9%
+                        </td>
+                        <td style="text-align:left;">
+                        9.8%
+                        </td>
+                        <td style="text-align:left;">
+                        9.6%
+                        </td>
+                        <td style="text-align:left;">
+                        8.2%
+                        </td>
+                        <td style="text-align:left;">
+                        14.9%
+                        </td>
+                        <td style="text-align:left;">
+                        6.6%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        6.6%
+                        </td>
+                        <td style="text-align:left;">
+                        11.3%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        8.4%
+                        </td>
+                        <td style="text-align:left;">
+                        1.3%
+                        </td>
+                        <td style="text-align:left;">
+                        12.3%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align:left;">
+                        Juárez Hidalgo
+                        </td>
+                        <td style="text-align:left;">
+                        34.3%
+                        </td>
+                        <td style="text-align:left;">
+                        17.4%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        18.8%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        3.3%
+                        </td>
+                        <td style="text-align:left;">
+                        2.2%
+                        </td>
+                        <td style="text-align:left;">
+                        4.6%
+                        </td>
+                        <td style="text-align:left;">
+                        7.7%
+                        </td>
+                        <td style="text-align:left;">
+                        6.6%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        5.2%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align:left;">
+                        Lolotla
+                        </td>
+                        <td style="text-align:left;">
+                        35.5%
+                        </td>
+                        <td style="text-align:left;">
+                        10.2%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        32.1%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0.9%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0.6%
+                        </td>
+                        <td style="text-align:left;">
+                        14.2%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        5.5%
+                        </td>
+                        <td style="text-align:left;">
+                        0.8%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align:left;">
+                        Metepec
+                        </td>
+                        <td style="text-align:left;">
+                        57.9%
+                        </td>
+                        <td style="text-align:left;">
+                        14.7%
+                        </td>
+                        <td style="text-align:left;">
+                        10.3%
+                        </td>
+                        <td style="text-align:left;">
+                        6.9%
+                        </td>
+                        <td style="text-align:left;">
+                        4%
+                        </td>
+                        <td style="text-align:left;">
+                        6.2%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align:left;">
+                        San Agustín Metzquititlán
+                        </td>
+                        <td style="text-align:left;">
+                        22.2%
+                        </td>
+                        <td style="text-align:left;">
+                        30%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        2.9%
+                        </td>
+                        <td style="text-align:left;">
+                        4.8%
+                        </td>
+                        <td style="text-align:left;">
+                        6.4%
+                        </td>
+                        <td style="text-align:left;">
+                        18.5%
+                        </td>
+                        <td style="text-align:left;">
+                        6.4%
+                        </td>
+                        <td style="text-align:left;">
+                        6.4%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        2.5%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align:left;">
+                        Metztitlán
+                        </td>
+                        <td style="text-align:left;">
+                        27.1%
+                        </td>
+                        <td style="text-align:left;">
+                        18.5%
+                        </td>
+                        <td style="text-align:left;">
+                        5.4%
+                        </td>
+                        <td style="text-align:left;">
+                        3.8%
+                        </td>
+                        <td style="text-align:left;">
+                        17%
+                        </td>
+                        <td style="text-align:left;">
+                        1.2%
+                        </td>
+                        <td style="text-align:left;">
+                        2%
+                        </td>
+                        <td style="text-align:left;">
+                        3.5%
+                        </td>
+                        <td style="text-align:left;">
+                        3%
+                        </td>
+                        <td style="text-align:left;">
+                        7.2%
+                        </td>
+                        <td style="text-align:left;">
+                        3.3%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        8%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align:left;">
+                        Mineral del Chico
+                        </td>
+                        <td style="text-align:left;">
+                        39.7%
+                        </td>
+                        <td style="text-align:left;">
+                        16.8%
+                        </td>
+                        <td style="text-align:left;">
+                        6%
+                        </td>
+                        <td style="text-align:left;">
+                        12.1%
+                        </td>
+                        <td style="text-align:left;">
+                        13.4%
+                        </td>
+                        <td style="text-align:left;">
+                        0.9%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        11.1%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align:left;">
+                        Mineral del Monte
+                        </td>
+                        <td style="text-align:left;">
+                        58.2%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        3.3%
+                        </td>
+                        <td style="text-align:left;">
+                        7.6%
+                        </td>
+                        <td style="text-align:left;">
+                        2%
+                        </td>
+                        <td style="text-align:left;">
+                        9%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        7.6%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        1.7%
+                        </td>
+                        <td style="text-align:left;">
+                        10.6%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align:left;">
+                        La Misión
+                        </td>
+                        <td style="text-align:left;">
+                        38%
+                        </td>
+                        <td style="text-align:left;">
+                        1.3%
+                        </td>
+                        <td style="text-align:left;">
+                        35.1%
+                        </td>
+                        <td style="text-align:left;">
+                        14.3%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        9.2%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        1.2%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        1%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align:left;">
+                        Mixquiahuala de Juárez
+                        </td>
+                        <td style="text-align:left;">
+                        64.7%
+                        </td>
+                        <td style="text-align:left;">
+                        6.1%
+                        </td>
+                        <td style="text-align:left;">
+                        3.8%
+                        </td>
+                        <td style="text-align:left;">
+                        8.7%
+                        </td>
+                        <td style="text-align:left;">
+                        2.8%
+                        </td>
+                        <td style="text-align:left;">
+                        5.6%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        4.2%
+                        </td>
+                        <td style="text-align:left;">
+                        1.4%
+                        </td>
+                        <td style="text-align:left;">
+                        0.8%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0.8%
+                        </td>
+                        <td style="text-align:left;">
+                        1%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align:left;">
+                        Molango de Escamilla
+                        </td>
+                        <td style="text-align:left;">
+                        22.9%
+                        </td>
+                        <td style="text-align:left;">
+                        47.6%
+                        </td>
+                        <td style="text-align:left;">
+                        10.2%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        5.2%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        6.6%
+                        </td>
+                        <td style="text-align:left;">
+                        7.5%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align:left;">
+                        Nicolás Flores
+                        </td>
+                        <td style="text-align:left;">
+                        24.1%
+                        </td>
+                        <td style="text-align:left;">
+                        12%
+                        </td>
+                        <td style="text-align:left;">
+                        1%
+                        </td>
+                        <td style="text-align:left;">
+                        3.5%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        1.1%
+                        </td>
+                        <td style="text-align:left;">
+                        2.1%
+                        </td>
+                        <td style="text-align:left;">
+                        13.3%
+                        </td>
+                        <td style="text-align:left;">
+                        30.3%
+                        </td>
+                        <td style="text-align:left;">
+                        5.8%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        6.7%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align:left;">
+                        Nopala de Villagrán
+                        </td>
+                        <td style="text-align:left;">
+                        45.6%
+                        </td>
+                        <td style="text-align:left;">
+                        17.9%
+                        </td>
+                        <td style="text-align:left;">
+                        11.1%
+                        </td>
+                        <td style="text-align:left;">
+                        7.1%
+                        </td>
+                        <td style="text-align:left;">
+                        4.3%
+                        </td>
+                        <td style="text-align:left;">
+                        4.9%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        3.6%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        2.7%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        2.7%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align:left;">
+                        Omitlán de Juárez
+                        </td>
+                        <td style="text-align:left;">
+                        58%
+                        </td>
+                        <td style="text-align:left;">
+                        8.4%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        23.1%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        8.1%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        2.4%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align:left;">
+                        San Felipe Orizatlán
+                        </td>
+                        <td style="text-align:left;">
+                        29.8%
+                        </td>
+                        <td style="text-align:left;">
+                        6.2%
+                        </td>
+                        <td style="text-align:left;">
+                        9%
+                        </td>
+                        <td style="text-align:left;">
+                        5.5%
+                        </td>
+                        <td style="text-align:left;">
+                        5.5%
+                        </td>
+                        <td style="text-align:left;">
+                        8.1%
+                        </td>
+                        <td style="text-align:left;">
+                        5.1%
+                        </td>
+                        <td style="text-align:left;">
+                        8%
+                        </td>
+                        <td style="text-align:left;">
+                        2.9%
+                        </td>
+                        <td style="text-align:left;">
+                        11.3%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        3.5%
+                        </td>
+                        <td style="text-align:left;">
+                        3.6%
+                        </td>
+                        <td style="text-align:left;">
+                        1.6%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align:left;">
+                        Pacula
+                        </td>
+                        <td style="text-align:left;">
+                        1.8%
+                        </td>
+                        <td style="text-align:left;">
+                        14.9%
+                        </td>
+                        <td style="text-align:left;">
+                        32.6%
+                        </td>
+                        <td style="text-align:left;">
+                        32.6%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        17.4%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0.6%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align:left;">
+                        Pachuca de Soto
+                        </td>
+                        <td style="text-align:left;">
+                        47.1%
+                        </td>
+                        <td style="text-align:left;">
+                        12.1%
+                        </td>
+                        <td style="text-align:left;">
+                        10.7%
+                        </td>
+                        <td style="text-align:left;">
+                        5.7%
+                        </td>
+                        <td style="text-align:left;">
+                        6.4%
+                        </td>
+                        <td style="text-align:left;">
+                        4.2%
+                        </td>
+                        <td style="text-align:left;">
+                        6%
+                        </td>
+                        <td style="text-align:left;">
+                        2.8%
+                        </td>
+                        <td style="text-align:left;">
+                        1.7%
+                        </td>
+                        <td style="text-align:left;">
+                        0.1%
+                        </td>
+                        <td style="text-align:left;">
+                        1.1%
+                        </td>
+                        <td style="text-align:left;">
+                        0.7%
+                        </td>
+                        <td style="text-align:left;">
+                        0.7%
+                        </td>
+                        <td style="text-align:left;">
+                        0.6%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align:left;">
+                        Pisaflores
+                        </td>
+                        <td style="text-align:left;">
+                        19.7%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        29.5%
+                        </td>
+                        <td style="text-align:left;">
+                        11.9%
+                        </td>
+                        <td style="text-align:left;">
+                        5.9%
+                        </td>
+                        <td style="text-align:left;">
+                        7%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        2.4%
+                        </td>
+                        <td style="text-align:left;">
+                        8.4%
+                        </td>
+                        <td style="text-align:left;">
+                        4.6%
+                        </td>
+                        <td style="text-align:left;">
+                        6%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        2.2%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        2.3%
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align:left;">
+                        Progreso de Obregón
+                        </td>
+                        <td style="text-align:left;">
+                        66.8%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        3.3%
+                        </td>
+                        <td style="text-align:left;">
+                        1.4%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        4.9%
+                        </td>
+                        <td style="text-align:left;">
+                        0.5%
+                        </td>
+                        <td style="text-align:left;">
+                        9.3%
+                        </td>
+                        <td style="text-align:left;">
+                        2.7%
+                        </td>
+                        <td style="text-align:left;">
+                        3%
+                        </td>
+                        <td style="text-align:left;">
+                        8.1%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align:left;">
+                        Mineral de la Reforma
+                        </td>
+                        <td style="text-align:left;">
+                        46.5%
+                        </td>
+                        <td style="text-align:left;">
+                        9.5%
+                        </td>
+                        <td style="text-align:left;">
+                        10.8%
+                        </td>
+                        <td style="text-align:left;">
+                        5.7%
+                        </td>
+                        <td style="text-align:left;">
+                        6.4%
+                        </td>
+                        <td style="text-align:left;">
+                        3.3%
+                        </td>
+                        <td style="text-align:left;">
+                        5.6%
+                        </td>
+                        <td style="text-align:left;">
+                        5.5%
+                        </td>
+                        <td style="text-align:left;">
+                        1.8%
+                        </td>
+                        <td style="text-align:left;">
+                        0.5%
+                        </td>
+                        <td style="text-align:left;">
+                        1.3%
+                        </td>
+                        <td style="text-align:left;">
+                        0.1%
+                        </td>
+                        <td style="text-align:left;">
+                        1.4%
+                        </td>
+                        <td style="text-align:left;">
+                        0.9%
+                        </td>
+                        <td style="text-align:left;">
+                        0.6%
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align:left;">
+                        San Agustín Tlaxiaca
+                        </td>
+                        <td style="text-align:left;">
+                        53.7%
+                        </td>
+                        <td style="text-align:left;">
+                        4.8%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        5.9%
+                        </td>
+                        <td style="text-align:left;">
+                        7.6%
+                        </td>
+                        <td style="text-align:left;">
+                        6%
+                        </td>
+                        <td style="text-align:left;">
+                        3.3%
+                        </td>
+                        <td style="text-align:left;">
+                        7.7%
+                        </td>
+                        <td style="text-align:left;">
+                        2.9%
+                        </td>
+                        <td style="text-align:left;">
+                        2.8%
+                        </td>
+                        <td style="text-align:left;">
+                        4.2%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        1.4%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align:left;">
+                        San Bartolo Tutotepec
+                        </td>
+                        <td style="text-align:left;">
+                        29.2%
+                        </td>
+                        <td style="text-align:left;">
+                        17.4%
+                        </td>
+                        <td style="text-align:left;">
+                        21.2%
+                        </td>
+                        <td style="text-align:left;">
+                        12.7%
+                        </td>
+                        <td style="text-align:left;">
+                        3.8%
+                        </td>
+                        <td style="text-align:left;">
+                        4.4%
+                        </td>
+                        <td style="text-align:left;">
+                        6.1%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        5.3%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align:left;">
+                        San Salvador
+                        </td>
+                        <td style="text-align:left;">
+                        64.6%
+                        </td>
+                        <td style="text-align:left;">
+                        12.1%
+                        </td>
+                        <td style="text-align:left;">
+                        2.6%
+                        </td>
+                        <td style="text-align:left;">
+                        7.5%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        4.7%
+                        </td>
+                        <td style="text-align:left;">
+                        1.4%
+                        </td>
+                        <td style="text-align:left;">
+                        3.4%
+                        </td>
+                        <td style="text-align:left;">
+                        2.3%
+                        </td>
+                        <td style="text-align:left;">
+                        1.3%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align:left;">
+                        Santiago de Anaya
+                        </td>
+                        <td style="text-align:left;">
+                        44.2%
+                        </td>
+                        <td style="text-align:left;">
+                        7.2%
+                        </td>
+                        <td style="text-align:left;">
+                        2.9%
+                        </td>
+                        <td style="text-align:left;">
+                        3%
+                        </td>
+                        <td style="text-align:left;">
+                        3.1%
+                        </td>
+                        <td style="text-align:left;">
+                        9.8%
+                        </td>
+                        <td style="text-align:left;">
+                        1.3%
+                        </td>
+                        <td style="text-align:left;">
+                        9.5%
+                        </td>
+                        <td style="text-align:left;">
+                        4.2%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        4.9%
+                        </td>
+                        <td style="text-align:left;">
+                        10%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align:left;">
+                        Santiago Tulantepec de Lugo Guerrero
+                        </td>
+                        <td style="text-align:left;">
+                        68.6%
+                        </td>
+                        <td style="text-align:left;">
+                        6.1%
+                        </td>
+                        <td style="text-align:left;">
+                        5.7%
+                        </td>
+                        <td style="text-align:left;">
+                        1.8%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        3.9%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        2.2%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        1.7%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        2.3%
+                        </td>
+                        <td style="text-align:left;">
+                        2.6%
+                        </td>
+                        <td style="text-align:left;">
+                        5.1%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align:left;">
+                        Singuilucan
+                        </td>
+                        <td style="text-align:left;">
+                        59%
+                        </td>
+                        <td style="text-align:left;">
+                        3.7%
+                        </td>
+                        <td style="text-align:left;">
+                        5.2%
+                        </td>
+                        <td style="text-align:left;">
+                        7.6%
+                        </td>
+                        <td style="text-align:left;">
+                        3.7%
+                        </td>
+                        <td style="text-align:left;">
+                        1.1%
+                        </td>
+                        <td style="text-align:left;">
+                        5.3%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        1.9%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        12.5%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align:left;">
+                        Tasquillo
+                        </td>
+                        <td style="text-align:left;">
+                        70.4%
+                        </td>
+                        <td style="text-align:left;">
+                        7.3%
+                        </td>
+                        <td style="text-align:left;">
+                        0.4%
+                        </td>
+                        <td style="text-align:left;">
+                        7.8%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        5.6%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        8.4%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align:left;">
+                        Tecozautla
+                        </td>
+                        <td style="text-align:left;">
+                        42.2%
+                        </td>
+                        <td style="text-align:left;">
+                        12.6%
+                        </td>
+                        <td style="text-align:left;">
+                        12.4%
+                        </td>
+                        <td style="text-align:left;">
+                        14%
+                        </td>
+                        <td style="text-align:left;">
+                        1.3%
+                        </td>
+                        <td style="text-align:left;">
+                        1.3%
+                        </td>
+                        <td style="text-align:left;">
+                        3%
+                        </td>
+                        <td style="text-align:left;">
+                        2.5%
+                        </td>
+                        <td style="text-align:left;">
+                        3.1%
+                        </td>
+                        <td style="text-align:left;">
+                        3.1%
+                        </td>
+                        <td style="text-align:left;">
+                        1.5%
+                        </td>
+                        <td style="text-align:left;">
+                        1.5%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        1.6%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align:left;">
+                        Tenango de Doria
+                        </td>
+                        <td style="text-align:left;">
+                        30.3%
+                        </td>
+                        <td style="text-align:left;">
+                        14.6%
+                        </td>
+                        <td style="text-align:left;">
+                        3.1%
+                        </td>
+                        <td style="text-align:left;">
+                        9.2%
+                        </td>
+                        <td style="text-align:left;">
+                        17.5%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        15.2%
+                        </td>
+                        <td style="text-align:left;">
+                        8.2%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        2%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align:left;">
+                        Tepeapulco
+                        </td>
+                        <td style="text-align:left;">
+                        68.9%
+                        </td>
+                        <td style="text-align:left;">
+                        7%
+                        </td>
+                        <td style="text-align:left;">
+                        1.8%
+                        </td>
+                        <td style="text-align:left;">
+                        0.8%
+                        </td>
+                        <td style="text-align:left;">
+                        5.6%
+                        </td>
+                        <td style="text-align:left;">
+                        8.4%
+                        </td>
+                        <td style="text-align:left;">
+                        0.9%
+                        </td>
+                        <td style="text-align:left;">
+                        3.6%
+                        </td>
+                        <td style="text-align:left;">
+                        1.4%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        1.1%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0.4%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align:left;">
+                        Tepehuacán de Guerrero
+                        </td>
+                        <td style="text-align:left;">
+                        12.4%
+                        </td>
+                        <td style="text-align:left;">
+                        5.5%
+                        </td>
+                        <td style="text-align:left;">
+                        12.2%
+                        </td>
+                        <td style="text-align:left;">
+                        18%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        4.2%
+                        </td>
+                        <td style="text-align:left;">
+                        3.4%
+                        </td>
+                        <td style="text-align:left;">
+                        6.6%
+                        </td>
+                        <td style="text-align:left;">
+                        9.1%
+                        </td>
+                        <td style="text-align:left;">
+                        23.2%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        5.4%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align:left;">
+                        Tepeji del Río de Ocampo
+                        </td>
+                        <td style="text-align:left;">
+                        71.8%
+                        </td>
+                        <td style="text-align:left;">
+                        1.6%
+                        </td>
+                        <td style="text-align:left;">
+                        4.2%
+                        </td>
+                        <td style="text-align:left;">
+                        6.1%
+                        </td>
+                        <td style="text-align:left;">
+                        1.4%
+                        </td>
+                        <td style="text-align:left;">
+                        3.2%
+                        </td>
+                        <td style="text-align:left;">
+                        1.1%
+                        </td>
+                        <td style="text-align:left;">
+                        3.9%
+                        </td>
+                        <td style="text-align:left;">
+                        1.1%
+                        </td>
+                        <td style="text-align:left;">
+                        1%
+                        </td>
+                        <td style="text-align:left;">
+                        0.5%
+                        </td>
+                        <td style="text-align:left;">
+                        0.4%
+                        </td>
+                        <td style="text-align:left;">
+                        2.1%
+                        </td>
+                        <td style="text-align:left;">
+                        1.6%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align:left;">
+                        Tepetitlán
+                        </td>
+                        <td style="text-align:left;">
+                        67.5%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        2%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        2.8%
+                        </td>
+                        <td style="text-align:left;">
+                        22%
+                        </td>
+                        <td style="text-align:left;">
+                        5.6%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align:left;">
+                        Tetepango
+                        </td>
+                        <td style="text-align:left;">
+                        74.7%
+                        </td>
+                        <td style="text-align:left;">
+                        1.6%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        6.8%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        2.4%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        3.4%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        11.1%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align:left;">
+                        Villa de Tezontepec
+                        </td>
+                        <td style="text-align:left;">
+                        66.8%
+                        </td>
+                        <td style="text-align:left;">
+                        0.6%
+                        </td>
+                        <td style="text-align:left;">
+                        15.9%
+                        </td>
+                        <td style="text-align:left;">
+                        5.2%
+                        </td>
+                        <td style="text-align:left;">
+                        5.9%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        4.8%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0.7%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align:left;">
+                        Tezontepec de Aldama
+                        </td>
+                        <td style="text-align:left;">
+                        82.2%
+                        </td>
+                        <td style="text-align:left;">
+                        2.7%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        3%
+                        </td>
+                        <td style="text-align:left;">
+                        2.4%
+                        </td>
+                        <td style="text-align:left;">
+                        4.1%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        1%
+                        </td>
+                        <td style="text-align:left;">
+                        2.6%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0.7%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        1.2%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align:left;">
+                        Tianguistengo
+                        </td>
+                        <td style="text-align:left;">
+                        31.5%
+                        </td>
+                        <td style="text-align:left;">
+                        15%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        22.3%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        7.9%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        8.5%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        14.9%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align:left;">
+                        Tizayuca
+                        </td>
+                        <td style="text-align:left;">
+                        59.1%
+                        </td>
+                        <td style="text-align:left;">
+                        5.2%
+                        </td>
+                        <td style="text-align:left;">
+                        7.1%
+                        </td>
+                        <td style="text-align:left;">
+                        4.9%
+                        </td>
+                        <td style="text-align:left;">
+                        5.8%
+                        </td>
+                        <td style="text-align:left;">
+                        5.4%
+                        </td>
+                        <td style="text-align:left;">
+                        3.3%
+                        </td>
+                        <td style="text-align:left;">
+                        2.2%
+                        </td>
+                        <td style="text-align:left;">
+                        1.2%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        2.9%
+                        </td>
+                        <td style="text-align:left;">
+                        0.6%
+                        </td>
+                        <td style="text-align:left;">
+                        1.1%
+                        </td>
+                        <td style="text-align:left;">
+                        1.1%
+                        </td>
+                        <td style="text-align:left;">
+                        0.2%
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align:left;">
+                        Tlahuelilpan
+                        </td>
+                        <td style="text-align:left;">
+                        74.7%
+                        </td>
+                        <td style="text-align:left;">
+                        11.5%
+                        </td>
+                        <td style="text-align:left;">
+                        5%
+                        </td>
+                        <td style="text-align:left;">
+                        1.7%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        2.1%
+                        </td>
+                        <td style="text-align:left;">
+                        1.6%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        1.8%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        1.5%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align:left;">
+                        Tlahuiltepa
+                        </td>
+                        <td style="text-align:left;">
+                        3.1%
+                        </td>
+                        <td style="text-align:left;">
+                        21.7%
+                        </td>
+                        <td style="text-align:left;">
+                        20.1%
+                        </td>
+                        <td style="text-align:left;">
+                        17.1%
+                        </td>
+                        <td style="text-align:left;">
+                        9.3%
+                        </td>
+                        <td style="text-align:left;">
+                        17.6%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0.9%
+                        </td>
+                        <td style="text-align:left;">
+                        10.3%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align:left;">
+                        Tlanalapa
+                        </td>
+                        <td style="text-align:left;">
+                        73.6%
+                        </td>
+                        <td style="text-align:left;">
+                        14.7%
+                        </td>
+                        <td style="text-align:left;">
+                        4.9%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        2.5%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        4.4%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align:left;">
+                        Tlanchinol
+                        </td>
+                        <td style="text-align:left;">
+                        30.7%
+                        </td>
+                        <td style="text-align:left;">
+                        7.3%
+                        </td>
+                        <td style="text-align:left;">
+                        20.5%
+                        </td>
+                        <td style="text-align:left;">
+                        8.8%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        11.1%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        4.2%
+                        </td>
+                        <td style="text-align:left;">
+                        4.4%
+                        </td>
+                        <td style="text-align:left;">
+                        4.3%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        4.4%
+                        </td>
+                        <td style="text-align:left;">
+                        2.6%
+                        </td>
+                        <td style="text-align:left;">
+                        1.9%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align:left;">
+                        Tlaxcoapan
+                        </td>
+                        <td style="text-align:left;">
+                        71.1%
+                        </td>
+                        <td style="text-align:left;">
+                        4.8%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        7.1%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        1.8%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        5.9%
+                        </td>
+                        <td style="text-align:left;">
+                        2.5%
+                        </td>
+                        <td style="text-align:left;">
+                        1.7%
+                        </td>
+                        <td style="text-align:left;">
+                        1.5%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        3.6%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align:left;">
+                        Tolcayuca
+                        </td>
+                        <td style="text-align:left;">
+                        31.4%
+                        </td>
+                        <td style="text-align:left;">
+                        21.2%
+                        </td>
+                        <td style="text-align:left;">
+                        12.7%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        13.8%
+                        </td>
+                        <td style="text-align:left;">
+                        8.2%
+                        </td>
+                        <td style="text-align:left;">
+                        6.3%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        2.2%
+                        </td>
+                        <td style="text-align:left;">
+                        3%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        1.3%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align:left;">
+                        Tula de Allende
+                        </td>
+                        <td style="text-align:left;">
+                        75.3%
+                        </td>
+                        <td style="text-align:left;">
+                        3.7%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        5.5%
+                        </td>
+                        <td style="text-align:left;">
+                        1.9%
+                        </td>
+                        <td style="text-align:left;">
+                        4.8%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        2.3%
+                        </td>
+                        <td style="text-align:left;">
+                        0.9%
+                        </td>
+                        <td style="text-align:left;">
+                        0.9%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        4.1%
+                        </td>
+                        <td style="text-align:left;">
+                        0.3%
+                        </td>
+                        <td style="text-align:left;">
+                        0.4%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align:left;">
+                        Tulancingo de Bravo
+                        </td>
+                        <td style="text-align:left;">
+                        62.7%
+                        </td>
+                        <td style="text-align:left;">
+                        6.4%
+                        </td>
+                        <td style="text-align:left;">
+                        9.6%
+                        </td>
+                        <td style="text-align:left;">
+                        5.2%
+                        </td>
+                        <td style="text-align:left;">
+                        0.2%
+                        </td>
+                        <td style="text-align:left;">
+                        5.3%
+                        </td>
+                        <td style="text-align:left;">
+                        1.6%
+                        </td>
+                        <td style="text-align:left;">
+                        1.9%
+                        </td>
+                        <td style="text-align:left;">
+                        4.2%
+                        </td>
+                        <td style="text-align:left;">
+                        0.4%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0.2%
+                        </td>
+                        <td style="text-align:left;">
+                        0.8%
+                        </td>
+                        <td style="text-align:left;">
+                        1.4%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align:left;">
+                        Xochiatipan
+                        </td>
+                        <td style="text-align:left;">
+                        21.3%
+                        </td>
+                        <td style="text-align:left;">
+                        4.9%
+                        </td>
+                        <td style="text-align:left;">
+                        5.5%
+                        </td>
+                        <td style="text-align:left;">
+                        6.7%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        8.8%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        9.6%
+                        </td>
+                        <td style="text-align:left;">
+                        10.6%
+                        </td>
+                        <td style="text-align:left;">
+                        18.8%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        1.9%
+                        </td>
+                        <td style="text-align:left;">
+                        11.7%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align:left;">
+                        Xochicoatlán
+                        </td>
+                        <td style="text-align:left;">
+                        31.3%
+                        </td>
+                        <td style="text-align:left;">
+                        19.8%
+                        </td>
+                        <td style="text-align:left;">
+                        13.5%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        17.4%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        8.9%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        9.3%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align:left;">
+                        Yahualica
+                        </td>
+                        <td style="text-align:left;">
+                        31.7%
+                        </td>
+                        <td style="text-align:left;">
+                        17.5%
+                        </td>
+                        <td style="text-align:left;">
+                        4%
+                        </td>
+                        <td style="text-align:left;">
+                        12.4%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        8.2%
+                        </td>
+                        <td style="text-align:left;">
+                        15.9%
+                        </td>
+                        <td style="text-align:left;">
+                        4.1%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        3.6%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        2.5%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align:left;">
+                        Zacualtipán de Ángeles
+                        </td>
+                        <td style="text-align:left;">
+                        48.7%
+                        </td>
+                        <td style="text-align:left;">
+                        8.7%
+                        </td>
+                        <td style="text-align:left;">
+                        1.6%
+                        </td>
+                        <td style="text-align:left;">
+                        1.3%
+                        </td>
+                        <td style="text-align:left;">
+                        16.9%
+                        </td>
+                        <td style="text-align:left;">
+                        5.6%
+                        </td>
+                        <td style="text-align:left;">
+                        4.8%
+                        </td>
+                        <td style="text-align:left;">
+                        7.2%
+                        </td>
+                        <td style="text-align:left;">
+                        3.2%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        1.8%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align:left;">
+                        Zapotlán de Juárez
+                        </td>
+                        <td style="text-align:left;">
+                        40.3%
+                        </td>
+                        <td style="text-align:left;">
+                        9.1%
+                        </td>
+                        <td style="text-align:left;">
+                        14.6%
+                        </td>
+                        <td style="text-align:left;">
+                        5.5%
+                        </td>
+                        <td style="text-align:left;">
+                        10.4%
+                        </td>
+                        <td style="text-align:left;">
+                        2.2%
+                        </td>
+                        <td style="text-align:left;">
+                        4.6%
+                        </td>
+                        <td style="text-align:left;">
+                        2%
+                        </td>
+                        <td style="text-align:left;">
+                        9.6%
+                        </td>
+                        <td style="text-align:left;">
+                        1.8%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align:left;">
+                        Zempoala
+                        </td>
+                        <td style="text-align:left;">
+                        54.8%
+                        </td>
+                        <td style="text-align:left;">
+                        10.3%
+                        </td>
+                        <td style="text-align:left;">
+                        9.5%
+                        </td>
+                        <td style="text-align:left;">
+                        2.9%
+                        </td>
+                        <td style="text-align:left;">
+                        5.6%
+                        </td>
+                        <td style="text-align:left;">
+                        2.1%
+                        </td>
+                        <td style="text-align:left;">
+                        5.6%
+                        </td>
+                        <td style="text-align:left;">
+                        2%
+                        </td>
+                        <td style="text-align:left;">
+                        2%
+                        </td>
+                        <td style="text-align:left;">
+                        0.2%
+                        </td>
+                        <td style="text-align:left;">
+                        1.6%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        1%
+                        </td>
+                        <td style="text-align:left;">
+                        2.4%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align:left;">
+                        Zimapán
+                        </td>
+                        <td style="text-align:left;">
+                        43%
+                        </td>
+                        <td style="text-align:left;">
+                        13.5%
+                        </td>
+                        <td style="text-align:left;">
+                        5.5%
+                        </td>
+                        <td style="text-align:left;">
+                        6%
+                        </td>
+                        <td style="text-align:left;">
+                        11.9%
+                        </td>
+                        <td style="text-align:left;">
+                        2.5%
+                        </td>
+                        <td style="text-align:left;">
+                        6.3%
+                        </td>
+                        <td style="text-align:left;">
+                        6.2%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        2.1%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        <td style="text-align:left;">
+                        1.5%
+                        </td>
+                        <td style="text-align:left;">
+                        0.9%
+                        </td>
+                        <td style="text-align:left;">
+                        0.5%
+                        </td>
+                        <td style="text-align:left;">
+                        0%
+                        </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    </div>
                 </div>
             </div>
             
             <div class="card-problemas">
                 <div class="title-problemas">Incidencia Delictiva</div>
                 <div class="subtitle-problemas">16 principales delitos con datos de los últimos 5 años a nivel municipal:</div>
-                <div class="content-problemas">
-                <p></p>
+                <div class="content-problemas" style="padding-top: 5vh;">
+                <p>Se consulta el <a target="_blank" href="https://www.gob.mx/sesnsp/acciones-y-programas/datos-abiertos-de-incidencia-delictiva">Secretariado Ejecutivo del Sistema Nacional de Seguridad Pública</a> obtener los datos a nivel municipio
+                     de 40 tipificaciones de delito de 2020 a 2024. Con ella y con la información demográfica de INEGI, 
+                     se calcula la tasa de incidencia delictiva por cada mil habitantes anual</p>
+                     <p>Después de filtrar los 16 delitos con mayor incidencia en el estado, se calcula la tasa de cambio en las tasas de delito por cada mil habitantes anuales.</p>
+                     <p>Se considera de prioridad si la tendencia creciente en la tasa de delito se encuentra en el cuarto cuartil respecto a otros municipios. Es decir, si la tasa de incidencia por cada mil habitantes es muy superior a la media estatal</p>
                 </div>
             </div>
             <div class="card-problemas">
                 <div class="title-problemas">Percepción mediática</div>
-                <div class="subtitle-problemas">De hacer Web Scrapping se identifican 4y problemas clasificados en 10 temas:</div>
+                <div class="subtitle-problemas">De hacer Web Scrapping en los principales medios digitales de información, se recuperan 84 problemáticas que posteriormente se clasifican en 10 temas:</div>
                 <div class="content-problemas">
                 <p></p>
+                <ul id ='temas_webscrapping'class="main-list">
+
+                </ul>
                 </div>
             </div>
             </div>

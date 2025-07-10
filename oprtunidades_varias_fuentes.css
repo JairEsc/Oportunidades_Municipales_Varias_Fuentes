@@ -109,6 +109,7 @@ body {
     /* La altura se ajustará automáticamente con la altura de la tarjeta */
     opacity: 0; /* Por defecto oculto para que no se vea al encogerse */
     transition: opacity 0.3s ease-out 0.2s; /* Transición con delay para la opacidad */
+    width: 100%;
 }
 /* Habilitar scroll y mostrar contenido cuando la tarjeta está activa */
 .card-problemas.active .content-problemas {
@@ -155,6 +156,12 @@ body {
     /* cursor: pointer; -- Eliminado de aquí, se aplica al enlace */
     color: #333; /* Color de texto oscuro */
     font-weight: 600; /* Texto principal en negrita */
+    width: 100%;
+    /* transition: background-color 0.2s ease; -- Eliminado, el fondo se cambia con la clase 'active' */
+}
+.main-list > li.has-submenu {
+    
+    width: 40vw;
     /* transition: background-color 0.2s ease; -- Eliminado, el fondo se cambia con la clase 'active' */
 }
 
