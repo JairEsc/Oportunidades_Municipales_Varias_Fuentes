@@ -42,59 +42,63 @@ body {
     overflow: hidden; /* Para que el contenido no se desborde al encogerse */
 }
 
-/* Estilos de HOVER (adicionales a los de click, si quieres mantener un pequeño efecto al pasar el ratón) */
 .card-problemas:hover {
     background-image: linear-gradient(to bottom left, #e0e4e5, rgba(212,193,156,0.5));
-    transform: translateY(-0.5vh); /* Ligero levantamiento al pasar el ratón */
+    transform: translateY(-0.5vh); 
     box-shadow:
         inset -2px 2px hsl(0 0 100% / 1),
-        -1.5vw 1.5vw 3vw hsl(0 0 0 / .2); /* Sombra ligeramente más grande */
+        -1.5vw 1.5vw 3vw hsl(0 0 0 / .2); 
+    overflow-y: hidden;
+}
+.card-problemas:not(.active):hover {
+    background-image: linear-gradient(to bottom left, #e0e4e5, rgba(212,193,156,0.5));
+    transform: translateY(-0.5vh); 
+    box-shadow:
+        inset -2px 2px hsl(0 0 100% / 1),
+        -1.5vw 1.5vw 3vw hsl(0 0 0 / .2); 
     overflow-y: scroll;
 }
 
-/* Estilos para la tarjeta ACTIVA */
+
 .card-problemas.active {
     background-image: linear-gradient(to top left, rgba(212,193,156,0.1), rgba(98,17,50,0.41)); /* Un rojo más vibrante */
-    height: 40vh; /* La tarjeta activa ocupa más altura */
+    height: 40vh; 
     box-shadow:
         inset -2px 2px hsl(0 0 100% / 1),
-        -2.5vw 2.5vw 5vw hsl(0 0 0 / .35); /* Sombra más pronunciada */
-    color: #222; /* Texto un poco más oscuro para mejor contraste */
-    transform: translateY(0); /* Asegura que no tenga levantamiento adicional */
+        -2.5vw 2.5vw 5vw hsl(0 0 0 / .35);
+    color: #222; 
+    transform: translateY(0); 
 }
 
-/* Estilos para las tarjetas INACTIVAS */
 .card-problemas:not(.active) {
     background-image: linear-gradient(to bottom left, rgba(212,193,156,0.1), rgba(179,148,93,0.35)); /* Un azul suave para las inactivas */
-    height: 5vh; /* Las tarjetas inactivas se encogen */
+    height: 5vh; 
     box-shadow:
         inset -2px 2px hsl(0 0 100% / 1),
-        -0.5vw 0.5vw 1vw hsl(0 0 0 / .1); /* Sombra muy suave */
+        -0.5vw 0.5vw 1vw hsl(0 0 0 / .1); 
 }
 
-/* Estilos internos de la tarjeta */
 .card-problemas .title-problemas {
-    font-size: 2.5vh; /* Tamaño de fuente en vh */
+    font-size: 2.5vh;
     grid-area: title;
     align-self: end;
     text-transform: uppercase;
     font-weight: 500;
     word-break: break-all;
-    line-height: 1.2; /* Ajuste para evitar cortes */
+    line-height: 1.2; 
 }
 .card-problemas .subtitle-problemas {
-    font-size: 2.0vh; /* Tamaño de fuente en vh */
+    font-size: 2.0vh; 
     grid-area: subtitle;
     align-self: end;
     font-weight: 500;
     word-break:keep-all;
-    line-height: 1.2; /* Ajuste para evitar cortes */
+    line-height: 1.2; 
 }
 
 .card-problemas .icon-problemas {
     grid-area: icon;
-    font-size: 4vh; /* Tamaño del icono en vh */
-    /* Puedes ajustar el tamaño del icono de 0 a un valor específico aquí si quieres que aparezca/desaparezca */
+    font-size: 4vh; 
 }
 .card-problemas .icon-problemas > i {
     color: transparent;
@@ -105,7 +109,7 @@ body {
 
 .card-problemas .content-problemas {
     grid-area: content;
-    overflow: hidden; /* Oculta el contenido si la tarjeta es pequeña */
+    overflow: hidden; 
     /* La altura se ajustará automáticamente con la altura de la tarjeta */
     opacity: 0; /* Por defecto oculto para que no se vea al encogerse */
     transition: opacity 0.3s ease-out 0.2s; /* Transición con delay para la opacidad */
